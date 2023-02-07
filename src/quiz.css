@@ -1,0 +1,7 @@
+.correct, .correct:hover{
+    background-color: green;
+}
+
+.incorrect, .incorrect:hover{
+    background-color: red;
+}
