@@ -2,7 +2,6 @@ import preguntas from './preguntas';
 import { useEffect, useState } from 'react';
 
 
-
 function App() {
   const [preguntasActual, setPreguntasActual] = useState(0);
   const [puntuacion, setPuntuacion] = useState(0);
@@ -46,21 +45,21 @@ function App() {
 
   if (finished) {
     return (
-      <main className='app'>
+      <main className='App'>
         <div className='game-finished'>
           <span> Tus respuesta fueron {puntuacion} de {preguntas.length}</span>
           <button onClick={() => (window.location.href = '/')}> Volver a jugar</button>
-          <button onClick={() => { setFinished(false); setShowAnswer(true); setPreguntasActual(0)}}> Ver respuestas</button>
+          <button onClick={() => { setFinished(false); setShowAnswer(true); setPreguntasActual(0) }}> Ver respuestas</button>
         </div>
       </main>
     )
   }
 
   if (showAnswer) {
-    return <main className='app'>
+    return <main className='App'>
       <div className='left-side'>
         <div className='answer-number'>
-          <span>Pregunta {preguntasActual + 1} de </span> {preguntas.length}
+          <span>Pregunta {preguntasActual + 1} de  {preguntas.length} </span>
         </div>
         <div className='answer-title'>{preguntas[preguntasActual].titulo}
         </div>
@@ -85,18 +84,24 @@ function App() {
     <div className="App">
       <div className='left-side'>
         <div className='answer-number'>
-          <span>Pregunta {preguntasActual + 1} de </span> {preguntas.length}
+          <span>Pregunta {preguntasActual + 1} de {preguntas.length} </span> 
         </div>
         <div className='answer-title'>{preguntas[preguntasActual].titulo}
         </div>
+        {!areDisabled ? (<span className='time'> Tiempo restante: {TimeRunnig}</span>) : (
+          <button className='button-continue' onClick={() => {
+            setTimeRunning(10);
+            setDisabled(false)
+            if (preguntasActual === preguntas.length - 1) {
+              setFinished(true)
+            } else {
+              setPreguntasActual(preguntasActual + 1)
+            }
+          }}>
+            Continuar</button>
+        )}
       </div>
-      {!areDisabled ? (<span className='time'> Tiempo restante: {TimeRunnig}</span>) : (
-        <button onClick={() => {
-          setTimeRunning(10);
-          setDisabled(false)
-          setPreguntasActual(preguntasActual + 1)
-        }}>Continuar</button>
-      )}
+
       <div className='rigth-side'>
         {preguntas[preguntasActual].opciones.map((respuesta) => (
           <button
