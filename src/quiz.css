@@ -23,16 +23,19 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 650px;
-    min-width: 450px;
+    /* max-width: 650px; */
+    min-width: 900px;
     height: min-content;
-    min-height: 200px;
+    min-height: 300px;
+    border-radius: 50px;
     box-shadow: 10px 10px 42px 0px rgba(0, 0    , 0, 0.75);
 }
 
 .left-side{
     width: 100%;
     position: relative;
+    width: 50%;
+    padding: 26px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -52,6 +55,8 @@ body{
 
 .rigth-side{
     width: 100%;
+    width: 50%;
+    padding: 26px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -75,8 +80,10 @@ button{
     padding: 5px;
     justify-content: flex-start;
     align-items: center;
-    border: 5px solid;
+    border: 2px solid;
     cursor: pointer;
+    margin: 10px;
+    place-content: center;
 }
 
 .button-continue{
