@@ -1,4 +1,5 @@
 import preguntas from '../preguntas'
+import { MostrarPuntajes } from '../componentes/MostrarPuntaje'
 import { useEffect, useState } from 'react';
 
 
@@ -10,11 +11,12 @@ function Quiz() {
   const [TimeRunnig, setTimeRunning] = useState(10);
   const [areDisabled, setDisabled] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false)
+  const [showUsers, setShowUsers] = useState(false)
   const [usuario, setUsuario] = useState("");
 
 
   const getUser = () => {
-    return sessionStorage.getItem('usuario')
+    return localStorage.getItem('usuario')
   }
 
   useEffect(() => {
@@ -61,10 +63,15 @@ function Quiz() {
         <div className='game-finished'>
           <span> {usuario} Tus respuesta fueron {puntuacion} de {preguntas.length}</span>
           <button onClick={() => (window.location.href = '/')}> Volver a jugar</button>
+          <button onClick={() => { setFinished(false); setShowUsers(true) }}> Mostrar ranking de los usuarios</button>
           <button onClick={() => { setFinished(false); setShowAnswer(true); setPreguntasActual(0) }}> Ver respuestas</button>
         </div>
       </main>
     )
+  }
+
+  if (showUsers) {
+    return <MostrarPuntajes />
   }
 
   if (showAnswer) {
