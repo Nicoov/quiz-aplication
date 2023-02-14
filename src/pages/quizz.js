@@ -1,18 +1,26 @@
 import preguntas from '../preguntas'
 import { useEffect, useState } from 'react';
 
- 
 
-function Quiz(props) {
+
+function Quiz() {
   const [preguntasActual, setPreguntasActual] = useState(0);
   const [puntuacion, setPuntuacion] = useState(0);
   const [finished, setFinished] = useState(false);
   const [TimeRunnig, setTimeRunning] = useState(10);
   const [areDisabled, setDisabled] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false)
+  const [usuario, setUsuario] = useState("");
 
 
-  console.log(props.usuario)
+  const getUser = () => {
+    return sessionStorage.getItem('usuario')
+  }
+
+  useEffect(() => {
+    setUsuario(getUser());
+  }, []);
+
 
   useEffect(() => {
     const intervalo = setInterval(() => {
@@ -33,6 +41,7 @@ function Quiz(props) {
   const handleAnswerSubmit = (isCorrect, e) => {
     if (isCorrect) {
       setPuntuacion(puntuacion + 1);
+      console.log(puntuacion)
     }
     e.target.classList.add(isCorrect ? "correct" : "incorrect")
 
@@ -50,8 +59,8 @@ function Quiz(props) {
     return (
       <main className='App'>
         <div className='game-finished'>
-          <span> Tus respuesta fueron {puntuacion} de {preguntas.length}</span>
-          <button onClick={() => (window.location.href = '/inicio')}> Volver a jugar</button>
+          <span> {usuario} Tus respuesta fueron {puntuacion} de {preguntas.length}</span>
+          <button onClick={() => (window.location.href = '/')}> Volver a jugar</button>
           <button onClick={() => { setFinished(false); setShowAnswer(true); setPreguntasActual(0) }}> Ver respuestas</button>
         </div>
       </main>
@@ -87,7 +96,7 @@ function Quiz(props) {
     <div className="App">
       <div className='left-side'>
         <div className='answer-number'>
-          <span>Pregunta {preguntasActual + 1} de {preguntas.length} </span> 
+          <span>Pregunta {preguntasActual + 1} de {preguntas.length} </span>
         </div>
         <div className='answer-title'>{preguntas[preguntasActual].titulo}
         </div>

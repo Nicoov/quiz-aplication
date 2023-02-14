@@ -1,13 +1,16 @@
 import { useState } from "react";
 
-function Inicio() {
+function Inicio(props) {
     const [usuario, setUsuario] = useState("");
+    const [puntaje, setPuntaje] = useState(0);
 
 
     const SessionDataStorage = (e) => {
         e.preventDefault();
         sessionStorage.setItem("usuario", usuario)
+        sessionStorage.setItem("puntaje", puntaje)
         console.log(usuario)
+        console.log(puntaje)
     }
 
     return (
@@ -21,7 +24,7 @@ function Inicio() {
                     value={usuario}
                     onChange={(e) => setUsuario(e.target.value)}
                 />
-                <button type="submit"> Iniciar</button>
+                <button type="submit" onClick={() => (window.location.href = '/quiz')}> Iniciar</button>
             </form>
         </div>
 
