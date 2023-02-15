@@ -53,6 +53,7 @@ function Quiz() {
         setFinished(true);
       } else {
         setPreguntasActual(preguntasActual + 1)
+        setTimeRunning(10);
       }
     }, 1500)
   }
@@ -63,7 +64,6 @@ function Quiz() {
         <div className='game-finished'>
           <span> {usuario} Tus respuesta fueron {puntuacion} de {preguntas.length}</span>
           <button onClick={() => (window.location.href = '/')}> Volver a jugar</button>
-          <button onClick={() => { setFinished(false); setShowUsers(true) }}> Mostrar ranking de los usuarios</button>
           <button onClick={() => { setFinished(false); setShowAnswer(true); setPreguntasActual(0) }}> Ver respuestas</button>
         </div>
       </main>

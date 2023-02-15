@@ -80,7 +80,7 @@ const preguntas = [
     {
         titulo: "¿En qué lugar del cuerpo se produce la insulina?",
         opciones: [
-            { Respuesta: "Pancreas", isCorrect: false },
+            { Respuesta: "Corazon", isCorrect: false },
             { Respuesta: "Estomago", isCorrect: false },
             { Respuesta: "Riñones", isCorrect: false },
             { Respuesta: "Pancreas", isCorrect: true },
