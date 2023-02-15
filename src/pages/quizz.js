@@ -8,7 +8,7 @@ function Quiz() {
   const [preguntasActual, setPreguntasActual] = useState(0);
   const [puntuacion, setPuntuacion] = useState(0);
   const [finished, setFinished] = useState(false);
-  const [TimeRunnig, setTimeRunning] = useState(10);
+  const [TimeRunnig, setTimeRunning] = useState(15);
   const [areDisabled, setDisabled] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false)
   const [showUsers, setShowUsers] = useState(false)
@@ -107,18 +107,7 @@ function Quiz() {
         </div>
         <div className='answer-title'>{preguntas[preguntasActual].titulo}
         </div>
-        {!areDisabled ? (<span className='time'> Tiempo restante: {TimeRunnig}</span>) : (
-          <button className='button-continue' onClick={() => {
-            setTimeRunning(10);
-            setDisabled(false)
-            if (preguntasActual === preguntas.length - 1) {
-              setFinished(true)
-            } else {
-              setPreguntasActual(preguntasActual + 1)
-            }
-          }}>
-            Continuar</button>
-        )}
+        <span className='time'> Tiempo restante: {TimeRunnig}</span>
       </div>
 
       <div className='rigth-side'>
@@ -128,6 +117,27 @@ function Quiz() {
             key={respuesta.Respuesta} onClick={(e) => { handleAnswerSubmit(respuesta.isCorrect, e) }}>{respuesta.Respuesta}</button>
         ))}
       </div>
+      {!areDisabled || <button className='button-continue' onClick={() => {
+        setTimeRunning(10);
+        setDisabled(false)
+        if (preguntasActual === preguntas.length - 1) {
+          setFinished(true)
+        } else {
+          setPreguntasActual(preguntasActual + 1)
+        }
+      }}>Continuar</button>}
+      {/* {!areDisabled ? (<span className='time'> Tiempo restante: {TimeRunnig}</span>) : (
+        <button className='button-continue' onClick={() => {
+          setTimeRunning(10);
+          setDisabled(false)
+          if (preguntasActual === preguntas.length - 1) {
+            setFinished(true)
+          } else {
+            setPreguntasActual(preguntasActual + 1)
+          }
+        }}>
+          Continuar</button>
+      )} */}
     </div>
   );
 }

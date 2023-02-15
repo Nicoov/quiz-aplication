@@ -1,25 +1,30 @@
-*{
-    font-family: monospace;
+* {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    ;
 }
 
-body{
+body {
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color: #B566FF;
+    font-weight: bold;
 }
 
-.correct, .correct:hover{
+.correct,
+.correct:hover {
     background-color: green;
 }
 
-.incorrect, .incorrect:hover{
+.incorrect,
+.incorrect:hover {
     background-color: red;
 }
 
 
-.App{
+.App {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,10 +33,11 @@ body{
     height: min-content;
     min-height: 300px;
     border-radius: 50px;
-    box-shadow: 10px 10px 42px 0px rgba(0, 0    , 0, 0.75);
+    box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+    flex-direction: column;
 }
 
-.left-side{
+.left-side {
     width: 100%;
     position: relative;
     width: 50%;
@@ -39,21 +45,22 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 }
 
-.answer-number{
+.answer-number {
     margin-bottom: 20px;
 }
 
-.answer-number span{
+.answer-number span {
     font-size: 28px;
 }
 
-.answer-title{
+.answer-title {
     margin-bottom: 12px;
 }
 
-.rigth-side{
+.rigth-side {
     width: 100%;
     width: 50%;
     padding: 26px;
@@ -63,7 +70,7 @@ body{
 }
 
 
-.game-finished{
+.game-finished {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -72,34 +79,90 @@ body{
 }
 
 
-button{
+button {
     width: 100%;
     font-size: 16px;
     border-radius: 15px;
     display: flex;
-    padding: 5px;
+    /* padding: 5px; */
     justify-content: flex-start;
     align-items: center;
-    border: 2px solid;
+    border: 2px;
     cursor: pointer;
     margin: 10px;
     place-content: center;
+    background-color: #6F16C1;
+    padding-top: 9px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 9px;
+    color: white;
+    font-weight: bold;
 }
 
-.button-continue{
-    width: 60%;
+
+
+span {
+    color: white;
+    font-size: 1.10rem;
+}
+
+.button-continue {
+    width: 30%;
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
 
-.time{
+.time {
     font-size: 14px;
     margin-bottom: 20px;
 }
 
+/* Estilo inicio */
+
+.container-user {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
 
+form {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
 
 
+.nick-style {
+    font-size: 1.25rem;
+    line-height: normal;
+    color: white;
+    align-self: center;
+}
+
+
+.input-base {
+    border-radius: 12px;
+    background: rgba(241, 250, 238, 0.15);
+    height: 50px;
+    font-size: 1.10rem;
+    font-weight: 500;
+    padding-top: 11.4px;
+    padding-bottom: 11.4px;
+    color: white;
+}
+
+/* Instrucciones */
+
+.container-intructions{
+    align-self: center;
+    display: flex;
+    place-content: center;
+    cursor: pointer;
+    height: 100%;
+    
+}
