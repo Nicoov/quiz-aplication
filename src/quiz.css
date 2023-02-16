@@ -164,5 +164,15 @@ form {
     place-content: center;
     cursor: pointer;
     height: 100%;
-    
+}
+
+.instrucciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-content: center;
+}
+
+.instrucciones span{
+    color: black;
 }

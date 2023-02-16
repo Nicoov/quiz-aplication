@@ -1,9 +1,39 @@
 import { useState } from "react";
+import Modal from 'react-modal'
+
 
 function Inicio() {
     const [usuario, setUsuario] = useState("");
+    const [openInfo, setOpenInfo] = useState(false)
     // const [puntaje, setPuntaje] = useState(0);
 
+    const OpenModal = () => {
+        setOpenInfo(true)
+    }
+
+    const handleOpenModal = () => {
+        return (
+            <Modal
+                isOpen={openInfo}
+                style={customModal}
+                shouldCloseOnOverlayClick={true}
+                onRequestClose={() => setOpenInfo(false)}
+                ariaHideApp={false}
+
+            >
+                <div className="container">
+                    <div className="instrucciones">
+                        <span>El juego consta de 10 preguntas generales 😮</span>
+                        <span>Tienes 15 segundos para respondar las 10 preguntas, si no respondes, pasaras a la siguiente y se te cobrara como incorrecta 😨</span>
+                        <span>Solo existe 1 respuesta correcta</span>
+                        <span>Disfruta 😎</span>
+                    </div>
+                </div>
+
+            </Modal>
+
+        )
+    }
 
 
     const LocalDataStorage = (e) => {
@@ -28,17 +58,33 @@ function Inicio() {
             </div>
 
             <div>
-                <div className="container-intructions">
+                <div className="container-intructions" onClick={() => OpenModal()}>
                     Instrucciones del juego 🤓
                 </div>
+                {handleOpenModal()}
             </div>
 
         </>
-
     )
 
-
 }
+
+
+const customModal = {
+    content: {
+        top: "50%",
+        left: "50%",
+        right: "auto",
+        bottom: "auto",
+        marginRight: "-50%",
+        transform: "translate(-50%, -50%)",
+        border: "none",
+    },
+    overlay: {
+        backgroundColor: "rgba(0,0,0,0.75)",
+    },
+};
+
 
 
 export default Inicio;
