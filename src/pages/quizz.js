@@ -24,7 +24,7 @@ function Quiz() {
   }, []);
 
 
-  useEffect(() => {
+  useEffect(() => {  // Este useEffect crea un intervalo de tiempo de 1 segundo, donde cada vez que se ejecuta se disminuye el valor del timerunning 
     const intervalo = setInterval(() => {
       if (TimeRunnig > 0) {
         setTimeRunning((prev) => prev - 1);
@@ -39,6 +39,11 @@ function Quiz() {
     return () => clearInterval(intervalo);
   }, [TimeRunnig])
 
+
+
+  //Este código es una función que maneja la presentación de respuestas a un cuestionario. 
+  //Si la respuesta dada es correcta, se aumenta el puntaje y se agrega la clase "correct" al elemento. Después de 1,5 segundos,
+  //si el usuario ha respondido todas las preguntas, el juego termina; de lo contrario, se avanza a la siguiente pregunta y el tiempo se reinicia.
 
   const handleAnswerSubmit = (isCorrect, e) => {
     if (isCorrect) {
