@@ -23,10 +23,13 @@ function Inicio() {
             >
                 <div className="container">
                     <div className="instrucciones">
-                        <span>El juego consta de 10 preguntas generales 😮</span>
-                        <span>Tienes 15 segundos para respondar las 10 preguntas, si no respondes, pasaras a la siguiente y se te cobrara como incorrecta 😨</span>
-                        <span>Solo existe 1 respuesta correcta</span>
-                        <span>Disfruta 😎</span>
+                        <h2>Instrucciones 🤓☝</h2>
+                        <div className="instrucciones-span">
+                            <span>El juego consta de 10 preguntas de conocimiento general 😮</span>
+                            <span>Tienes 15 segundos para responder las 10 preguntas, si no respondes, pasaras a la siguiente y se te cobrara como incorrecta 😨</span>
+                            <span>Solo existe 1 respuesta correcta</span>
+                        </div>
+                        <h2>Disfruta 😎</h2>
                     </div>
                 </div>
 

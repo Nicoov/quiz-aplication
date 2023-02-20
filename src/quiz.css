@@ -175,4 +175,14 @@ form {
 
 .instrucciones span{
     color: black;
+    margin: 15px;
+}
+
+.instrucciones-span{
+    display: flex;
+    flex-direction: column;
+}
+
+.instrucciones h2{
+    text-align: center;
 }
